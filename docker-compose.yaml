@@ -1,0 +1,18 @@
+services:
+  silloc-search-tool:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/project
+    ports:
+      - "8000:8000"
+    environment:
+      REPO_ROOT: /project
+      PYTHONPATH: /project/src
+      # Suppress warnings
+      PYTHONWARNINGS: ignore::UserWarning:pydantic._internal._generate_schema
+    shm_size: '16gb'
+    # At least one of stdin_open or tty is required to make devcontainer work
+    stdin_open: true
+    tty: true

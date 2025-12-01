@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDEs and OS
+.DS_Store
+.vscode/
+
+# Environment
+.venv/
+
+# Build artifacts
+*.egg-info/
+.coverage
+.tox/
+dist/
+build/
+
+# Caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.server_cache/
+*.log
+uv.lock
