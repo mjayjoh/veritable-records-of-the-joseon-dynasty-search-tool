@@ -17,7 +17,10 @@ ENV PATH="/project/.venv/bin:$PATH"
 ENV PYTHONPATH=/project/src
 RUN uv sync
 
+# Copy application source code
+COPY src /project/src
+
 # Ensure PYTHONPATH persists in interactive shells
 RUN echo 'export PYTHONPATH=/project/src' >> /root/.bashrc
 
-CMD ["/bin/bash"]
+CMD ["python", "src/server.py", "--http"]
