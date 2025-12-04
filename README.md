@@ -25,6 +25,8 @@ Researchers, historians, and enthusiasts can use this server to perform queries,
 ├── Dockerfile               # Docker container definition
 ├── Makefile                 # Make commands for development
 ├── pyproject.toml           # Python dependencies
+├── requirements.txt         # Python dependencies for Render deployment
+├── runtime.txt              # Python version for Render deployment
 └── README.md
 ```
 
@@ -82,15 +84,13 @@ All commands are run from your host machine's terminal.
 
 3.  **Run in STDIO Mode (for local testing with MCP Inspector)**
     This mode allows for interactive testing with tools like the [MCP Inspector](https://github.com/google/model-context-protocol?tab=readme-ov-file#mcp-inspector).
-    First, get an interactive shell inside the running container:
+    First, ensure a Docker container is running (e.g., by running `make run` or `make run-interactive` in a separate terminal).
+    Then, execute the `run_server.sh` script to attach to the running container and start the server in STDIO mode:
     ```bash
-    make run-interactive
+    ./run_server.sh
     ```
-    Once inside the container, run the server in STDIO mode:
-    ```bash
-    uv run python src/server.py
-    ```
-    (Press `Ctrl+F` to focus on the terminal and interact with the container's shell.)
+    (You might need to make the script executable: `chmod +x run_server.sh`)
+    (Press `Ctrl+F` to focus on the terminal and interact with the STDIO stream if using an interactive client.)
 
 ## Usage & Testing
 
