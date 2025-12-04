@@ -118,6 +118,3 @@ We use [uv](https://docs.astral.sh/uv/) for Python environment and package manag
 - `pydantic`
 - `beautifulsoup4`
 - `requests`
-
-### Style
-We use [`ruff`](https://docs.astral.sh/ruff/) to enforce style standards.
