@@ -52,6 +52,14 @@ Once you have a `document_id` from the search tool, you can use this tool to get
 2.  From the results, pick a document and get its `document_id`.
 3.  Call `fetch_joseon_annals_article_tool` with that `document_id` to read the full article.
 
+## Hosted Version
+
+A streamable HTTP version of this MCP server is publicly hosted on Render:
+
+**URL**: [`https://veritable-records-of-the-joseon-dynasty.onrender.com/mcp`](https://veritable-records-of-the-joseon-dynasty.onrender.com/mcp)
+
+Please note that this is running on a free tier, which means the service may be slow to start up if it has been idle.
+
 ## Getting Started
 
 ### Prerequisites
@@ -66,16 +74,23 @@ All commands are run from your host machine's terminal.
     make build
     ```
 
-2.  **Run the server**
+2.  **Run in HTTP Mode (for production/local web access)**
     The server will start in HTTP mode on `http://localhost:8000`.
     ```bash
     make run
     ```
 
-    Alternatively, to get an interactive shell inside the running container:
+3.  **Run in STDIO Mode (for local testing with MCP Inspector)**
+    This mode allows for interactive testing with tools like the [MCP Inspector](https://github.com/google/model-context-protocol?tab=readme-ov-file#mcp-inspector).
+    First, get an interactive shell inside the running container:
     ```bash
     make run-interactive
     ```
+    Once inside the container, run the server in STDIO mode:
+    ```bash
+    uv run python src/server.py
+    ```
+    (Press `Ctrl+F` to focus on the terminal and interact with the container's shell.)
 
 ## Usage & Testing
 
